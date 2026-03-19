@@ -67,7 +67,7 @@ For this exercise, we will use VSCode and the Live Server extension to run the J
 
 
 
-## Submission
+## Submission!
 
 - Upon completion, run the following commands:
 
