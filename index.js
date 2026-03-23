@@ -3,10 +3,9 @@
 *******************************************/
 // Write code that prints out to the console the index of the character “j” in
 
-const string1 = "My favorite dessert is jello";
+const string1 = "My favorite dessert is jelly";
 
-// Your code here...
-
+console.log(string1.indexOf("j"[0]))
 
 
 
@@ -16,8 +15,41 @@ const string1 = "My favorite dessert is jello";
 // Make a new string with the text "COOL" by using only the characters available in the provided string and the bracket notation
 
 const string2 = "ABCDEFGHJKLO";
+const targetString = "COOL";
+let newString2 = "";
 
-// Your code here...
+for (let i = 0; i < targetString.length; i++) {
+    for (let j = 0; j < string2.length; j++) {
+       if (targetString[i] === string2[j]) {
+        newString2 += string2[j];
+        break;
+       }    
+    }
+}
+
+/*
+Como extra, he estado investigasndo sobre como optimizar el código para no recorrer tanto el string2,
+y he encontrado el concepto de "hashing" que es básicamente crear un objeto con las letras del string2 como claves para acceder a ellas de manera más eficiente. 
+El motivo  es que me estaba rompiendo mucho la cabeza con los dos bucles ya que me parecia poco eficiente ya que ahora es un string/array de 12 items pero en el mundo laboral entiendo que seran muchissimos mas.
+
+Dejo el código optimizado:
+
+let indexMap = {};
+
+for (let i = 0; i < string2.length; i++) {
+    indexMap[string2[i]] = i;
+}
+
+for (let i = 0; i < targetString.length; i++) {
+    let index = indexMap[targetString[i]];
+    newString2 += string2[index];
+}
+
+
+No se si esto es algo que nos ibais a enseñar en un futuro pero en mi opinion el concepto me ha parecido una pasada y mucho mas senzillo de aplicar que el doble bucle for 
+*/
+
+console.log(newString2);
 
 
 
@@ -29,7 +61,7 @@ const string2 = "ABCDEFGHJKLO";
 
 const string3 = "Na";
 
-// Your code here...
+console.log(`${string3.repeat(4)} Batman!`);
 
 
 
@@ -40,8 +72,9 @@ const string3 = "Na";
 // Using the string method .slice(), access and print to the console the name of your favorite fruit from a given string
 
 const fruit = "banana apple mango orange lemon kiwi watermelon grapes pear pineapple";
+const favFruit = fruit.indexOf("watermelon")
 
-// Your code here...
+console.log(fruit.slice(favFruit, favFruit+10));
 
 
 
@@ -54,15 +87,18 @@ const fruit = "banana apple mango orange lemon kiwi watermelon grapes pear pinea
 
 const funnyHeadline1 = "Breathing oxygen linked to staying alive";
 const funnyHeadline2 = "Students Cook & Serve Grandparents";
-
+const word = "oxygen"
 
 // Check the first headline
-// Your code here ...
+if (funnyHeadline1.toLowerCase().includes(word)) {
+    console.log(`The string includes the word ${word}`)
+} else {console.log(`The string does not include the word ${word}`)}
 
 
 // Check the second headline
-// Your code here ...
-
+if (funnyHeadline2.toLowerCase().includes(word)) {
+    console.log(`The string includes the word ${word}`)
+} else {console.log(`The string does not include the word ${word}`)}
 
 
 /*******************************************
@@ -74,8 +110,8 @@ const string4 = "zEAWrTC9EgtxmK9w1";
 
 
 // a) Print the string length
-// Your code here ...
+console.log(string4.length)
 
 
 // b) Print the last character in the string
-// Your code here ...
+console.log(string4[string4.length-1])
